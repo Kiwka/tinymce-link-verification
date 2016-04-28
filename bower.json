@@ -1,0 +1,17 @@
+{
+  "name": "tinymce-link-verification",
+  "homepage": "https://github.com/Kiwka/tinymce-link-verification",
+  "authors": [
+    "Olena Sovyn <olenasovyn@gmail.com>"
+  ],
+  "description": "TinyMCE plugin for link support with url verification",
+  "main": "link-verification/plugin.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
