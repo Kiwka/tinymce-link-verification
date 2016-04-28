@@ -33,7 +33,6 @@ Example
 
 Code below represent only part of the fields needed for the full tinymce initialization. Fields that are present in the code below are used in the work of this plugin.
 
-<code>
 ```javascript
 tinymce.init({
   plugins: 'linkVerification',
@@ -46,7 +45,6 @@ tinymce.init({
     cancel_button_text: 'Cancel',
 }});
 ```
-</code>
 
 Other details
 -------
