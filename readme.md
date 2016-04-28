@@ -20,12 +20,12 @@ To install plugin using bower use command <code>bower install tinymce-link-verif
 Default values
 -------
 
-verification_default : false,
-verification_pattern: '',
-verification_error: 'This is not a valid url',
-label_url_text: 'Url',
-ok_button_text: 'Ok',
-cancel_button_text: 'Cancel'
+* verification_default : false,
+* verification_pattern: '',
+* verification_error: 'This is not a valid url',
+* label_url_text: 'Url',
+* ok_button_text: 'Ok',
+* cancel_button_text: 'Cancel'
 
 
 Example
@@ -34,6 +34,7 @@ Example
 Code below represent only part of the fields needed for the full tinymce initialization. Fields that are present in the code below are used in the work of this plugin.
 
 <code>
+```javascript
 tinymce.init({
   plugins: 'linkVerification',
   link_config: {
@@ -44,6 +45,7 @@ tinymce.init({
     ok_button_text: 'Go!',
     cancel_button_text: 'Cancel',
 }});
+```
 </code>
 
 Other details
