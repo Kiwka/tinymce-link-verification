@@ -1,7 +1,7 @@
 Link plugin for TinyMCE with url verification
 ===================================
 
-This plugin brings HTML5 placeholder attribute functionality for the TinyMCE editor.
+This plugin helps create url modal window for adding Url as a default one with additional functionality: possibility verify url accordingly to the provided pattern and to change text label on the controllers.
 
 Usage
 -----
