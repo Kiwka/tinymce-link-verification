@@ -4,6 +4,7 @@
   "authors": [
     "Olena Sovyn <olenasovyn@gmail.com>"
   ],
+  "version": "0.1.2",
   "description": "TinyMCE plugin for link support with url verification",
   "main": "link-verification/plugin.js",
   "license": "MIT",
