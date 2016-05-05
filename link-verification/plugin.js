@@ -274,7 +274,7 @@ tinymce.PluginManager.add('linkVerification', function(editor) {
 					type: 'filepicker',
 					filetype: 'file',
 					size: 40,
-					autofocus: true,
+					autofocus: false,
 					label: editor.settings.link_config.label_url_text || 'Url',
 					onchange: urlChange,
 					onkeyup: updateText
@@ -330,6 +330,7 @@ tinymce.PluginManager.add('linkVerification', function(editor) {
 
 						if ((pattern instanceof RegExp) && !pattern.test(href)) {
 							editor.windowManager.alert(config.verification_error || 'This is not a valid url');
+							return false;
 						}
 					}
 				}
@@ -391,19 +392,22 @@ tinymce.PluginManager.add('linkVerification', function(editor) {
 				// Is not protocol prefixed
 				if ((editor.settings.link_assume_external_targets && !/^\w+:/i.test(href)) ||
 					(!editor.settings.link_assume_external_targets && /^\s*www[\.|\d\.]/i.test(href))) {
-					delayedConfirm(
-						'The URL you entered seems to be an external link. Do you want to add the required http:// prefix?',
-						function(state) {
-							if (state) {
-								href = 'http://' + href;
-							}
-
+							href = 'http://' + href;
 							checkVerification();
 							insertLink();
-						}
-					);
 
-					return;
+							return;
+					}
+
+				// handle protocol (http/https/ftp) misspelling
+				if (editor.settings.link_config.check_protocol) {
+					var protocolPattern = new RegExp('^(' + editor.settings.link_config.check_protocol.join('|') + '):\/\/');
+					if (!protocolPattern.test(href)) {
+						if(!checkVerification()) {
+							e.preventDefault();
+							return;
+						}
+					}
 				}
 
 				checkVerification();
